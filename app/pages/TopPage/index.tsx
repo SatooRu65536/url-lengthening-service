@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Button from '~/components/base/Button';
-import { convertToLongUrl } from '~/utils/convert';
+import { convertToLongUrl, convertToShortUrl } from '~/utils/convert';
 import styles from './index.module.scss';
 
 export default function TopPage() {
@@ -42,6 +42,14 @@ export default function TopPage() {
         rows={4}
         readOnly
         value={longUrl}
+      />
+      <textarea
+        id="result"
+        placeholder="Result will appear here"
+        className={styles.outputUrl}
+        rows={4}
+        readOnly
+        value={convertToShortUrl(longUrl)}
       />
 
       <Button id="copyButton" onClick={handleCopyToClipboard}>
