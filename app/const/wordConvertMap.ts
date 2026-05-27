@@ -56,16 +56,16 @@ export const WORD_CONVRT_MAP: Record<string, string> = {
   'Z': 'zooplankton', // 動物プランクトン
 
   // numbers
-  '0': '0',
-  '1': '1',
-  '2': '2',
-  '3': '3',
-  '4': '4',
-  '5': '5',
-  '6': '6',
-  '7': '7',
-  '8': '8',
-  '9': '9',
+  '0': 'a',
+  '1': 'the',
+  '2': 'to',
+  '3': 'and',
+  '4': 'or',
+  '5': 'for',
+  '6': 'this',
+  '7': 'url',
+  '8': 'lengthening',
+  '9': 'service',
 
   // symbols
   '+': 'colony', // ペンギンの群れ
