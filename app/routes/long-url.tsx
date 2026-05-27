@@ -23,6 +23,7 @@ export default function Home({ params }: Route.ComponentProps) {
       return;
     }
 
+    toast.info(`Redirecting in ${COUNTDOWN_SECONDS}s`);
     const interval = setInterval(() => {
       if (count > 0) {
         setCount((prev) => prev - 1);
@@ -56,7 +57,7 @@ export default function Home({ params }: Route.ComponentProps) {
         <a href={originalUrl}>{originalUrl}</a>
       </div>
       {count > 0
-        ? `redirected in ${count} seconds.`
+        ? `redirected in ${count}s.`
         : 'Redirecting...'}
     </div>
   );
