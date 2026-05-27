@@ -35,7 +35,14 @@ export default function Home({ params }: Route.ComponentProps) {
   }, [originalUrl]);
 
   if (!isValid) {
-    return <div>Invalid URL.</div>;
+    return (
+      <div>
+        <div>Invalid URL.</div>
+        <div>
+          <a href={originalUrl}>{originalUrl}</a>
+        </div>
+      </div>
+    );
   }
 
   if (count < 1) {
