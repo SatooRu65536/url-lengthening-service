@@ -30,6 +30,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>URL Lengthening Service</title>
+        <meta name="description" content="A service that converts a URL into an unnecessarily long URL." />
+        <meta property="og:title" content="URL Lengthening Service" />
+        <meta property="og:description" content="A service that converts a URL into an unnecessarily long URL." />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary" />
         <Meta />
         <Links />
       </head>
