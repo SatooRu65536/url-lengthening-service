@@ -12,8 +12,7 @@ export default function TopPage() {
   };
 
   const handleCopyToClipboard = () => {
-    const longUrl = convertToLongUrl(inputUrl);
-    navigator.clipboard.writeText(longUrl).then(() => {
+    navigator.clipboard.writeText(`${window.location.origin}/_/${longUrl}`).then(() => {
       alert('Copied to clipboard!');
     }).catch((err) => {
       console.error('Failed to copy: ', err);

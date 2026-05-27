@@ -7,6 +7,6 @@ export function convertToLongUrl(shortUrl: string): string {
 }
 
 // URL をもとに戻す
-export function convertToShortUrl(longUrl: string): string {
+export function convertToOriginalUrl(longUrl: string): string {
   return fromBase64(longUrl.split('-').map((word) => REVERSE_WORD_CONVRT_MAP[word]).join(''));
 }
