@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 import Button from '~/components/base/Button';
 import { convertToLongUrl } from '~/utils/convert';
 import styles from './index.module.scss';
@@ -12,10 +13,15 @@ export default function TopPage() {
   };
 
   const handleCopyToClipboard = () => {
+    if (longUrl.length === 0) {
+      toast.error('No URL to copy!');
+      return;
+    }
     navigator.clipboard.writeText(`${window.location.origin}/_/${longUrl}`).then(() => {
-      alert('Copied to clipboard!');
+      toast.success('Copied to clipboard!');
     }).catch((err) => {
       console.error('Failed to copy: ', err);
+      toast.error('Failed to copy to clipboard.');
     });
   };
 

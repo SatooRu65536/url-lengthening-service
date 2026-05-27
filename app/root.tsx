@@ -7,6 +7,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from 'react-router';
+import { ToastContainer } from 'react-toastify';
 import Header from '~/components/base/Header';
 import './app.scss';
 
@@ -39,6 +40,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         </main>
         <ScrollRestoration />
         <Scripts />
+        <ToastContainer />
       </body>
     </html>
   );

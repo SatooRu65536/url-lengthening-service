@@ -1,5 +1,6 @@
 import type { Route } from './+types/long-url';
 import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 import { convertToOriginalUrl } from '~/utils/convert';
 import { validateUrl } from '~/utils/validateUrl';
 
@@ -17,7 +18,10 @@ export default function Home({ params }: Route.ComponentProps) {
   const isValid = validateUrl(originalUrl);
 
   useEffect(() => {
-    if (!isValid) return;
+    if (!isValid) {
+      toast.error('Invalid URL.');
+      return;
+    }
 
     const interval = setInterval(() => {
       if (count > 0) {
@@ -31,7 +35,7 @@ export default function Home({ params }: Route.ComponentProps) {
   }, [originalUrl]);
 
   if (!isValid) {
-    return <div>無効なURLです。</div>;
+    return <div>Invalid URL.</div>;
   }
 
   if (count < 1) {
@@ -40,11 +44,13 @@ export default function Home({ params }: Route.ComponentProps) {
 
   return (
     <div>
-      <div>このURLへリダイレクトします。</div>
+      <div>You will be redirected to this URL.</div>
       <div>
         <a href={originalUrl}>{originalUrl}</a>
       </div>
-      <div>{count > 0 ? `${count}秒後に遷移します。` : '遷移中...'}</div>
+      {count > 0
+        ? `redirected in ${count} seconds.`
+        : 'Redirecting...'}
     </div>
   );
 }
